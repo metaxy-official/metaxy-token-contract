@@ -7,11 +7,14 @@ import "./BEP20.sol";
 import "@openzeppelin/contracts/utils/Context.sol";
 
 contract MxyToken is Ownable, BEP20 {
-    constructor(address wallet, uint256 totalSupply) Ownable() BEP20("Mxy Token","MXY") {
+    constructor(address wallet, uint256 totalSupply)
+        Ownable()
+        BEP20("Mxy Token", "MXY")
+    {
         _mint(wallet, totalSupply);
         transferOwnership(wallet);
     }
-    
+
     /**
      * @dev Creates `amount` tokens and assigns them to `msg.sender`, increasing
      * the total supply.
@@ -24,7 +27,8 @@ contract MxyToken is Ownable, BEP20 {
         uint256 totalSupply = totalSupply();
         require(
             totalSupply + amount < 1000000000 ether,
-            'MXY::mint: exceeding the permitted limits');
+            "MXY::mint: exceeding the permitted limits"
+        );
         _mint(_msgSender(), amount);
         return true;
     }
@@ -51,7 +55,10 @@ contract MxyToken is Ownable, BEP20 {
      */
     function burnFrom(address account, uint256 amount) public {
         uint256 currentAllowance = allowance(account, _msgSender());
-        require(currentAllowance >= amount, "BEP20: burn amount exceeds allowance");
+        require(
+            currentAllowance >= amount,
+            "BEP20: burn amount exceeds allowance"
+        );
         unchecked {
             _approve(account, _msgSender(), currentAllowance - amount);
         }

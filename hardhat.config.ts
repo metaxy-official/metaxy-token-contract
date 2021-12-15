@@ -22,9 +22,13 @@ const config: HardhatUserConfig = {
   solidity: "0.8.4",
   networks: {
     bsc_testnet: {
-      url: process.env.BSC_TESTNET_URL || "https://data-seed-prebsc-1-s1.binance.org:8545/",
+      url:
+        process.env.BSC_TESTNET_URL ||
+        "https://data-seed-prebsc-1-s1.binance.org:8545/",
       accounts:
-        process.env.DEPLOYER_PRIVATE_KEY !== undefined ? [process.env.DEPLOYER_PRIVATE_KEY] : [],
+        process.env.DEPLOYER_PRIVATE_KEY !== undefined
+          ? [process.env.DEPLOYER_PRIVATE_KEY]
+          : [],
     },
   },
   gasReporter: {
