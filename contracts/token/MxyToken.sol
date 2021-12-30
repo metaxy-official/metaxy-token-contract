@@ -26,7 +26,7 @@ contract MxyToken is Ownable, BEP20 {
     function mint(uint256 amount) public onlyOwner returns (bool) {
         uint256 totalSupply = totalSupply();
         require(
-            totalSupply + amount < 1000000000 ether,
+            totalSupply + amount < 1500000000 ether,
             "MXY::mint: exceeding the permitted limits"
         );
         _mint(_msgSender(), amount);
