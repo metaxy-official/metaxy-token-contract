@@ -5,7 +5,7 @@ Try running some of the following tasks:
 ```shell
 npx hardhat clean
 npx hardhat compile
-npx hardhat deploy_testnet --network bsc_testnet
+npx hardhat deploy_token --network bsc_testnet
 ```
 
 # Performance optimizations

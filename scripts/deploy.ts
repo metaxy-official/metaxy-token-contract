@@ -9,10 +9,10 @@ const TOKEN_DEPLOYED_CONTRACT_ADDRESS = process.env.TOKEN_DEPLOYED_CONTRACT_ADDR
 const DEPLOYER_WALLET_ADDRESS = process.env.DEPLOYER_WALLET_ADDRESS || "0";
 
 /**
- * npx hardhat deploy_testnet --network bsc_testnet
- * npx hardhat verify_testnet --network bsc_testnet
+ * npx hardhat deploy_token --network bsc_testnet
+ * npx hardhat deploy_token --network bsc_testnet
  */
-task("deploy_testnet", "deploys TestNet", async (_, { ethers }) => {
+task("deploy_token", "Deploy Token", async (_, { ethers }) => {
   const [deployer] = await ethers.getSigners();
   console.log("[MXY] owner is", deployer.address);
   console.log("[MXY] total supply is", TOKEN_TOTAL_SUPPLY);
@@ -23,7 +23,7 @@ task("deploy_testnet", "deploys TestNet", async (_, { ethers }) => {
   console.log("[MXY] deployed to:", instance.address);
 });
 
-task("verify_testnet", "Verify TestNet", async (_, hre) => {
+task("verify_token", "Verify Token", async (_, hre) => {
   console.log("[MXY] owner is", DEPLOYER_WALLET_ADDRESS);
   console.log("[MXY] contract address is", TOKEN_DEPLOYED_CONTRACT_ADDRESS);
 
