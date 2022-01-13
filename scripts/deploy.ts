@@ -10,7 +10,7 @@ const DEPLOYER_WALLET_ADDRESS = process.env.DEPLOYER_WALLET_ADDRESS || "0";
 
 /**
  * npx hardhat deploy_token --network bsc_testnet
- * npx hardhat deploy_token --network bsc_testnet
+ * npx hardhat verify_token --network bsc_testnet
  */
 task("deploy_token", "Deploy Token", async (_, { ethers }) => {
   const [deployer] = await ethers.getSigners();
